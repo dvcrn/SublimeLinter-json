@@ -5,6 +5,8 @@ import sublime
 
 from SublimeLinter.lint import Linter
 
+from . import simplejson
+
 
 class JSON(Linter):
     cmd = None
@@ -33,7 +35,7 @@ class JSON(Linter):
         try:
             if strict:
                 self.regex = self.strict_regex
-                json.loads(code)
+                simplejson.loads(code)
             else:
                 self.regex = self.loose_regex
                 sublime.decode_value(code)
